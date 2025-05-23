@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Cart | Samsung</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script defer src="script.js"></script>
+  <style>
+     .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .card,
+body.dark-mode .navbar,
+body.dark-mode .btn,
+body.dark-mode .scroll-btn {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+  border-color: #444 !important;
+}
+
+body.small-text { font-size: 14px; }
+body.medium-text { font-size: 16px; }
+body.large-text { font-size: 20px; }
+
+ html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+  <nav style="padding: 0;" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/og samsung logo.jpeg" alt="Samsung Logo" width="50px" height="50px">
+            </a>
+            <h1 style="color: white;">SAMSUNG</h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="viewcart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Accessibility Controls -->
+<div class="container mt-5 pt-4 d-flex justify-content-end gap-2">
+  <button class="btn btn-outline-secondary btn-sm" onclick="changeTextSize('small')">A-</button>
+  <button class="btn btn-outline-secondary btn-sm" onclick="changeTextSize('medium')">A</button>
+  <button class="btn btn-outline-secondary btn-sm" onclick="changeTextSize('large')">A+</button>
+  <button class="btn btn-outline-dark btn-sm" onclick="toggleTheme()">🌓 Theme</button>
+</div>
+
+<!-- Main Content -->
+<main class="container mt-5 pt-5">
+  <h2 class="mb-4 text-center">Your Shopping Cart</h2>
+  <div id="cart-container"></div>
+  <div class="text-end mt-4">
+    <h4>Total: P<span id="cart-total">0.00</span></h4>
+  </div>
+</main>
+
+<!-- JS to Load Cart -->
+<!-- JS to Load Cart -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    loadCartItems();
+  });
+
+  function loadCartItems() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const container = document.getElementById("cart-container");
+    const totalDisplay = document.getElementById("cart-total");
+
+    container.innerHTML = '';
+    let total = 0;
+
+    if (cart.length === 0) {
+      container.innerHTML = '<p>Your cart is empty.</p>';
+      totalDisplay.innerText = "0.00";
+      updateCartCount();
+      return;
+    }
+
+    cart.forEach((item, index) => {
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
+
+      const card = document.createElement("div");
+      card.className = "card mb-3";
+      card.innerHTML = `
+        <div class="card-body d-flex align-items-center justify-content-between cart-item">
+          <img src="${item.image}" alt="${item.name}">
+          <div class="ms-3 flex-grow-1">
+            <h5 class="mb-1">${item.name}</h5>
+            <p class="mb-1">Price: P${item.price.toFixed(2)}</p>
+            <p class="mb-0">Quantity: ${item.quantity}</p>
+          </div>
+          <button class="btn btn-danger" onclick="removeItem(${index})">Remove</button>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+
+    totalDisplay.innerText = total.toFixed(2);
+    updateCartCount();
+  }
+
+  function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    loadCartItems();
+  }
+</script>
+
+<!-- ✅ Add this to fix navbar toggler -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+ <!-- Footer -->
+    <footer style="background-color: black;padding: 0;">
+        <p style="color: white;">&copy; 2025 Samsung. All rights reserved.</p>
+    </footer>
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung | Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+  <style>
+    .product-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .product-card {
+      transition: transform 0.2s ease-in-out;
+    }
+    .product-card:hover {
+      transform: scale(1.02);
+    }
+    .cart-confirmation {
+      color: green;
+      font-weight: bold;
+      display: none;
+    }
+    body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .card,
+body.dark-mode .navbar,
+body.dark-mode .btn,
+body.dark-mode .scroll-btn {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+  border-color: #444 !important;
+}
+
+body.small-text { font-size: 14px; }
+body.medium-text { font-size: 16px; }
+body.large-text { font-size: 20px; }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+    <nav style="padding: 0;" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/og samsung logo.jpeg" alt="Samsung Logo" width="50px" height="50px">
+            </a>
+            <h1 style="color: white;">SAMSUNG</h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="viewcart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-- Accessibility Controls -->
+<div class="container mt-5 pt-4 d-flex justify-content-end gap-2">
+  <button class="btn btn-outline-secondary btn-sm" onclick="changeTextSize('small')">A-</button>
+  <button class="btn btn-outline-secondary btn-sm" onclick="changeTextSize('medium')">A</button>
+  <button class="btn btn-outline-secondary btn-sm" onclick="changeTextSize('large')">A+</button>
+  <button class="btn btn-outline-dark btn-sm" onclick="toggleTheme()">🌓 Theme</button>
+</div>
+
+<!-- Main Content -->
+<main class="container mt-5 pt-5">
+  <h2 class="text-center mb-4 display-4">Smartphones</h2>
+  <div class="text-end mb-3">
+  <button class="btn btn-secondary" onclick="history.back()">Back</button>
+</div>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <!-- Product 1 -->
+    <div class="col">
+      <div class="card product-card h-100">
+        <img src="images/SAMSUNG GALAXY A16 5G.jpg" alt="Galaxy A16 5G" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Galaxy A16 5G</h5>
+          <p class="card-text">Affordable and powerful with 5G connectivity.</p>
+          <button class="btn btn-primary add-to-cart-btn"
+            data-product-id="galaxy-a16"
+            data-product-name="Galaxy A16 5G"
+            data-product-price="2829.00"
+            data-product-image="images/SAMSUNG GALAXY A16 5G.jpg"
+            onclick="toggleCart(this)">Add to Cart</button>
+          <div class="cart-confirmation">✔ Added to Cart</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="col">
+      <div class="card product-card h-100">
+        <img src="images/SAMSUNG GALAXY A15.jpg" alt="Galaxy A15" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Galaxy A15</h5>
+          <p class="card-text">Reliable performance with sleek design.</p>
+          <button class="btn btn-primary add-to-cart-btn"
+            data-product-id="galaxy-a15"
+            data-product-name="Galaxy A15"
+            data-product-price="2999.00"
+            data-product-image="images/SAMSUNG GALAXY A15.jpg"
+            onclick="toggleCart(this)">Add to Cart</button>
+          <div class="cart-confirmation">✔ Added to Cart</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="col">
+      <div class="card product-card h-100">
+        <img src="images/SAMSUNG S25 ULTRA.jpg" alt="S25 Ultra" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Galaxy S25 Ultra</h5>
+          <p class="card-text">Top-tier flagship with pro-grade cameras.</p>
+          <button class="btn btn-primary add-to-cart-btn"
+            data-product-id="galaxy-s25-ultra"
+            data-product-name="Galaxy S25 Ultra"
+            data-product-price="3499.00"
+            data-product-image="images/SAMSUNG S25 ULTRA.jpg"
+            onclick="toggleCart(this)">Add to Cart</button>
+          <div class="cart-confirmation">✔ Added to Cart</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="col">
+      <div class="card product-card h-100">
+        <img src="images/037119b1c3d8f7d8e992d5f386e2d27b fold 4.jpg" alt="Galaxy Fold 5" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Galaxy Fold 5</h5>
+          <p class="card-text">Folding innovation in your pocket.</p>
+          <button class="btn btn-primary add-to-cart-btn"
+            data-product-id="galaxy-fold-5"
+            data-product-name="Galaxy Fold 5"
+            data-product-price="25000.00"
+            data-product-image="images/037119b1c3d8f7d8e992d5f386e2d27b fold 4.jpg"
+            onclick="toggleCart(this)">Add to Cart</button>
+          <div class="cart-confirmation">✔ Added to Cart</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 5 -->
+    <div class="col">
+      <div class="card product-card h-100">
+        <img src="images/ae9a9fce063e9895155790da4681409e.jpg" alt="Flip 4" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Galaxy Flip 4</h5>
+          <p class="card-text">Compact and stylish flip design.</p>
+          <button class="btn btn-primary add-to-cart-btn"
+            data-product-id="galaxy-flip-4"
+            data-product-name="Galaxy Flip 4"
+            data-product-price="14000.00"
+            data-product-image="images/ae9a9fce063e9895155790da4681409e.jpg"
+            onclick="toggleCart(this)">Add to Cart</button>
+          <div class="cart-confirmation">✔ Added to Cart</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="col">
+      <div class="card product-card h-100">
+        <img src="images/SAMSUNG GALAXY FOLD  4.jpg" alt="Galaxy Fold 4" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Galaxy Fold 4</h5>
+          <p class="card-text">Refined foldable with multitasking magic.</p>
+          <button class="btn btn-primary add-to-cart-btn"
+            data-product-id="galaxy-fold-4"
+            data-product-name="Galaxy Fold 4"
+            data-product-price="10000.00"
+            data-product-image="images/SAMSUNG GALAXY FOLD  4.jpg"
+            onclick="toggleCart(this)">Add to Cart</button>
+          <div class="cart-confirmation">✔ Added to Cart</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+</body>
+<footer style="background-color: black;padding: 0;">
+    <p style="color: white;">&copy; 2025 Samsung. All rights reserved.</p>
+</footer>
+</html>

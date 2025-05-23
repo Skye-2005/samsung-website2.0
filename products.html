@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung | Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .card,
+body.dark-mode .navbar,
+body.dark-mode .btn,
+body.dark-mode .scroll-btn {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+  border-color: #444 !important;
+}
+
+body.small-text { font-size: 14px; }
+body.medium-text { font-size: 16px; }
+body.large-text { font-size: 20px; }
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav style="padding: 0;" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/og samsung logo.jpeg" alt="Samsung Logo" width="50px" height="50px">
+            </a>
+            <h1 style="color: white;">SAMSUNG</h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="viewcart.html">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-- Accessibility Controls -->
+<div class="container mt-5 pt-4 d-flex justify-content-end gap-2">
+  <button class="btn btn-outline-secondary btn-sm" onclick="changeTextSize('small')">A-</button>
+  <button class="btn btn-outline-secondary btn-sm" onclick="changeTextSize('medium')">A</button>
+  <button class="btn btn-outline-secondary btn-sm" onclick="changeTextSize('large')">A+</button>
+  <button class="btn btn-outline-dark btn-sm" onclick="toggleTheme()">🌓 Theme</button>
+</div>
+
+    <main class="container mt-5 pt-4">
+    <!-- Category Buttons -->
+    <div class="btn-group d-flex flex-wrap gap-2 my-4">
+        <a href="wearables.html" class="btn btn-outline-primary">Wearables</a>
+        <a href="smartphones.html" class="btn btn-outline-primary">Smartphones</a>
+        <a href="laptops.html" class="btn btn-outline-primary">Laptops</a>
+        <a href="tv.html" class="btn btn-outline-primary">TV</a>
+        <a href="galaxy_ring.html" class="btn btn-outline-primary">Galaxy Ring</a>
+    </div>
+</main>
+
+
+<section id="coming-soon" class="mb-5 position-relative mt-5 pt-5">
+  <h2 class="text-center mb-4 display-4">Coming Soon</h2>
+
+  <!-- Scroll Buttons -->
+  <button class="scroll-btn left btn btn-dark position-absolute top-50 translate-middle-y start-0 z-3" onclick="scrollContainer(-1)">
+    &#8249;
+  </button>
+  <button class="scroll-btn right btn btn-dark position-absolute top-50 translate-middle-y end-0 z-3" onclick="scrollContainer(1)">
+    &#8250;
+  </button>
+
+  <!-- Scrollable Product Row -->
+  <div id="scroll-wrapper" class="scroll-container d-flex flex-row overflow-auto px-2" style="gap: 1rem;">
+    <div class="card product-card" style="min-width: 250px;">
+      <img src="images/ar smart glasses.jpeg" class="card-img-top" alt="AR Smart Glasses">
+      <div class="card-body">
+        <h5 class="card-title">AR Smart Glasses</h5>
+        <p class="card-text">Lightweight AR glasses with 12MP camera and 155mAh battery.</p>
+        <span class="badge bg-warning text-dark">Coming Soon</span>
+      </div>
+    </div>
+
+    <div class="card product-card" style="min-width: 250px;">
+      <img src="images/ballie robot.jpeg" class="card-img-top" alt="Ballie AI Robot">
+      <div class="card-body">
+        <h5 class="card-title">Ballie AI Robot</h5>
+        <p class="card-text">Autonomous smart home robot assistant.</p>
+        <span class="badge bg-warning text-dark">Coming Soon</span>
+      </div>
+    </div>
+
+    <div class="card product-card" style="min-width: 250px;">
+      <img src="images/galaxy tri fold.jpeg" class="card-img-top" alt="Galaxy G Fold">
+      <div class="card-body">
+        <h5 class="card-title">Galaxy G Fold (Tri-Fold)</h5>
+        <p class="card-text">Inward-folding tri-screen device.</p>
+        <span class="badge bg-warning text-dark">Coming Soon</span>
+      </div>
+    </div>
+       <div class="card product-card">
+            <img src="images/galaxy watch 8.jpeg" class="card-img-top" alt="Galaxy Buds 3 Pro">
+            <div class="card-body">
+                <h5 class="card-title">Galaxy Watch 8</h5>
+                <p class="card-text">with enhanced battery life and new health monitoring features.
+                    Available in both Wi-Fi and LTE variants.
+                     Enhanced durability</p>
+                <span class="badge bg-warning text-dark">Coming Soon</span>
+            </div>
+        </div>
+
+         <!-- Product 5 -->
+         <div class="card product-card">
+            <img src="images/m56 galaxy.jpeg" class="card-img-top" alt="Smart Monitor M9">
+            <div class="card-body">
+                <h5 class="card-title">Galaxy M56 5G</h5>
+                <p class="card-text">A mid-range phone with a slim 7.2mm profile, 6.7-inch Super AMOLED+ display, and Exynos 1480 processor and 4 cameras.</p>
+                <span class="badge bg-warning text-dark">Coming Soon</span>
+            </div>
+        </div>
+
+
+        <div class="card product-card">
+            <img src="images/neo qled.jpeg" class="card-img-top" alt="Smart Monitor M9">
+            <div class="card-body">
+                <h5 class="card-title">new Neo QLED</h5>
+                <p class="card-text">AI Upscaling: Transforms lower-resolution content to near-8K quality.
+                    Auto HDR Remastering: Enhances colors and contrast frame by frame.
+                </p>
+                <span class="badge bg-warning text-dark">Coming Soon</span>
+            </div>
+        </div>
+
+        <div class="card product-card">
+            <img src="images/s25  edge.jpeg" class="card-img-top" alt="Smart Monitor M9">
+            <div class="card-body">
+                <h5 class="card-title">Galaxy S25 Slim</h5>
+                <p class="card-text">A thinner, more affordable variant of the S25.
+                     Equipped with 8GB RAM and 256GB of internal storage.</p>
+                <span class="badge bg-warning text-dark">Coming Soon</span>
+            </div>
+        </div>
+
+        <div class="card product-card">
+            <img src="images/ring 2.jpg" class="card-img-top" alt="Smart Monitor M9">
+            <div class="card-body">
+                <h5 class="card-title">Galaxy Ring 2</h5>
+                <p class="card-text">A smart ring with improved health tracking, multiple size options, and up to 7-day battery life.</p>
+                <span class="badge bg-warning text-dark">Coming Soon</span>
+            </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="card product-card">
+            <img src="images/m56 galaxy 1.jpeg" class="card-img-top" alt="Smart Monitor M9">
+            <div class="card-body">
+                <h5 class="card-title">Galaxy M56 5G</h5>
+                <p class="card-text">A mid-range phone with a slim 7.2mm profile, 6.7-inch Super AMOLED+ display, and Exynos 1480 processor.</p>
+                <span class="badge bg-warning text-dark">Coming Soon</span>
+            </div>
+        </div>
+    </div>
+</section>
+<h1 style="text-align: center;">SNEAK A PEEK😜</h1>
+ <section class="mt-5">
+  <div class="container-fluid px-0">
+    <div class="d-flex justify-content-center">
+      <video id="promoVideo" class="w-100" style="max-height: 700px; object-fit: cover;" autoplay muted controls>
+        <source src="images/33f5dd9e16eaf947555ae4630f5beeda.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div id="stayTunedMessage" class="text-center mt-3 fs-4 fw-bold" style="display: none;">
+      Stay tuned for more exciting products!
+    </div>
+  </div>
+</section>
+   <!-- Add more scroll cards if needed -->
+  </div>
+</section>
+<script>
+  function scrollContainer(direction) {
+    const container = document.getElementById('scroll-wrapper');
+    container.scrollBy({ left: direction * 300, behavior: 'smooth' });
+  }
+
+  const video = document.getElementById('promoVideo');
+  const message = document.getElementById('stayTunedMessage');
+
+  video.addEventListener('ended', () => {
+    message.style.display = 'block';
+  });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+ <!-- Footer -->
+    <footer style="background-color: black;padding: 0;">
+        <p style="color: white;">&copy; 2025 Samsung. All rights reserved.</p>
+    </footer>
+</html>

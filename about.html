@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung | About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<style>
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+body.dark-mode .navbar,
+body.dark-mode .btn,
+body.dark-mode footer {
+  background-color: #1e1e1e !important;
+  color: white !important;
+}
+body.small-text { font-size: 14px; }
+body.medium-text { font-size: 16px; }
+body.large-text { font-size: 20px; }
+</style>
+<body>
+
+<!-- Navbar (same as yours) -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="images/og samsung logo.jpeg" alt="Logo" width="50">
+        </a>
+        <h1 style="color: white;">SAMSUNG</h1>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="viewcart.html">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Accessibility Controls -->
+<div class="container mt-5 pt-4 d-flex justify-content-end gap-2">
+  <button class="btn btn-outline-secondary btn-sm" onclick="changeTextSize('small')">A-</button>
+  <button class="btn btn-outline-secondary btn-sm" onclick="changeTextSize('medium')">A</button>
+  <button class="btn btn-outline-secondary btn-sm" onclick="changeTextSize('large')">A+</button>
+  <button class="btn btn-outline-dark btn-sm" onclick="toggleTheme()">🌓 Theme</button>
+</div>
+
+<!-- Main Content -->
+<section class="py-5 mt-5">
+    <div class="container text-center">
+        <h1 class="display-4 mb-4">About Samsung</h1>
+        <p class="lead">At Samsung, innovation is at the heart of everything we do. From smartphones to smart homes, we bring technology closer to life.</p>
+    </div>
+</section>
+
+<!-- Mission Section -->
+<section class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Our Mission & Vision</h2>
+        <p class="text-center">Samsung aims to inspire the world with innovative technologies, products and design that enrich people’s lives and contribute to social prosperity by creating a new future.</p>
+    </div>
+</section>
+
+<!-- Why Samsung -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Why Choose Samsung?</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <h4>Innovation</h4>
+                <p>Leading the world with cutting-edge technology and futuristic design.</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Quality</h4>
+                <p>Products engineered for reliability, durability, and performance.</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Customer Focus</h4>
+                <p>Putting the needs and experiences of our customers first.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3 mt-5">
+    <p>&copy; 2025 Samsung Electronics. All rights reserved.</p>
+</footer>
+</html>
